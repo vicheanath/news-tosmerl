@@ -13,6 +13,7 @@
     @yield('css')
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <title>@yield('title')</title>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -21,8 +22,23 @@
         @include('layouts.partials.navbar')
         @include('layouts.partials.sidebar')
         <div class="content-wrapper">
-
-            @yield('content')
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1> @yield('content-header')</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                @yield('content-actions')
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="content">
+                @yield('content')
+                <section />
 
         </div>
         @include('layouts.partials.footer')

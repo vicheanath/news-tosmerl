@@ -18,6 +18,7 @@ class CreateArticlesTable extends Migration
             $table->string('title')->nullable();
             $table->text('detail')->nullable();
             $table->string('thumbnail')->nullable();
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

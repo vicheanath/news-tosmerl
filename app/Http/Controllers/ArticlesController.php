@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Articles;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::latest()->simplePaginate(10);
+     
+        return view('articles.index')->with('articles',$articles);
     }
 
     /**
@@ -24,7 +27,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        //
+        return view('articles.create');
     }
 
     /**
