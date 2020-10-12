@@ -43,8 +43,14 @@
         </div>
         @include('layouts.partials.footer')
     </div>
-
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        $(function() {
+            // Summernote
+            $('.textarea').summernote()
+        })
+
+    </script>
     @yield('js')
 </body>
 

@@ -34,13 +34,13 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <i class="nav-icon fas fa-list-ol"></i>
                         <p>Category</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('articles.index') }}" class="nav-link {{ activeSegment('articles') }}">
-                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <i class="nav-icon fas fa-newspaper"></i>
                         <p>Articales</p>
                     </a>
                 </li>

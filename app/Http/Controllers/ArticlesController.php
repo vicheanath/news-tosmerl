@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ArticlesStoreRequest;
 use App\Models\Article;
 use App\Models\Articles;
 use Illuminate\Http\Request;
@@ -16,8 +17,7 @@ class ArticlesController extends Controller
     public function index()
     {
         $articles = Article::latest()->simplePaginate(10);
-     
-        return view('articles.index')->with('articles',$articles);
+        return view('articles.index')->with('articles', $articles);
     }
 
     /**
@@ -36,9 +36,19 @@ class ArticlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticlesStoreRequest $request)
     {
         //
+        $articles = Article::created([
+            'title' => $request->title,
+            'detail' => $request->detail,
+            'thumbnail' => $request->thumbnail,
+            'status' => $request->status,
+        ]);
+        if (!$articles) {
+            return redirect()->back()->with('error', 'Ops Sorry Your articles not create !!');
+        }
+        return redirect()->route('articles.index')->with('succuss', 'Success, Your Article has been created successfully ~');
     }
 
     /**
