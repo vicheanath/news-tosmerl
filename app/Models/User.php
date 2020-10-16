@@ -18,6 +18,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
+        'rols',
+        'description',
         'email',
         'password',
     ];
@@ -41,6 +44,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public function getAvata(){
-        return 'https://avatars3.githubusercontent.com/u/48352653?s=460&u=bea390621c5e38693272e8053b85e7c922b9e67f&v=4';
+        return 'image/avata.jpg';
     }
 }

@@ -11,29 +11,25 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ auth()->user()->getAvata() }}" class="img-circle elevation-2" alt="User Image">
+                <img src="{{ asset(
+                    auth()->user()->getAvata(),
+                ) }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block">Vichea</a>
             </div>
         </div>
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-       with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('home') }}" class="nav-link {{ activeSegment('')}}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
+                        <p>Dashboard</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('category.index') }}" class="nav-link {{ activeSegment('category') }}">
                         <i class="nav-icon fas fa-list-ol"></i>
                         <p>Category</p>
                     </a>
@@ -43,6 +39,36 @@
                         <i class="nav-icon fas fa-newspaper"></i>
                         <p>Articales</p>
                     </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('articles.index') }}" class="nav-link {{ activeSegment('advertisement') }}">
+                        <i class="nav-icon fas fa-ad"></i>
+                        <p>Advertisement</p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            Setting
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: block;">
+                        <li class="nav-item">
+                            <a href="{{ route('users.index') }}" class="nav-link {{ activeSegment('users') }}">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>User</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-server"></i>
+                                <p>Server Info</p>
+                            </a>
+                        </li>
+
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="document.getElementById('logout-form').submit()">
