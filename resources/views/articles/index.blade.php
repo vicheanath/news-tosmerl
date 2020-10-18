@@ -13,6 +13,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Title</th>
+                        <th>Category</th>
                         <th>thumbnail</th>
                         <th>Status</th>
                         <th>Created_At</th>
@@ -25,8 +26,9 @@
                         <tr>
                             <th>{{ $article->id }}</th>
                             <th>{{ $article->title }}</th>
+                            <th>{{ $article->category_id }}</th>
                             <th>{{ $article->thumbnail }}</th>
-                            <th>{{ $article->status }}</th>
+                            <th><span class="right badge badge-{{status($article->status)['class']}}">{{status($article->status)['status']}}</span></th>
                             <th>{{ $article->created_at }}</th>
                             <th>{{ $article->updated_at }}</th>
                             <th>

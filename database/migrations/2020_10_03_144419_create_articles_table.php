@@ -20,6 +20,8 @@ class CreateArticlesTable extends Migration
             $table->string('thumbnail')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

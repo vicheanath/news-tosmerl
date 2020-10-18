@@ -3,7 +3,7 @@
 @section('title', 'Users List')
 @section('content-header', 'Users List')
 @section('content-actions')
-    <a href="{{ route('users.create') }}" class="btn btn-primary">Post users</a>
+    <a href="{{ route('users.create') }}" class="btn btn-primary">Create users</a>
 @endsection
 @section('content')
     <div class="card">
@@ -26,6 +26,7 @@
                             <th>{{ $user->id }}</th>
                             <th>{{ $user->name }}</th>
                             <th>{{ $user->email }}</th>
+                            <th>{{ $user->rols }}</th>
                             <th>{{ $user->created_at }}</th>
                             <th>{{ $user->updated_at }}</th>
                             <th>
